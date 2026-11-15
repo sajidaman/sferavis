@@ -1,0 +1,510 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Lexend', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-lexend: 'Lexend', sans-serif;
+  --font-oswald: 'Oswald', sans-serif;
+  --font-serif: 'Merriweather', Georgia, Cambria, serif;
+  --font-merriweather: 'Merriweather', Georgia, Cambria, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* SFERAvis Logo Deep Red & Monochrome Palette */
+  --color-sfera-deep-red: #8B0000;
+  --color-sfera-red: #A30000;
+  --color-sfera-crimson: #990000;
+  --color-sfera-black: #050507;
+  --color-sfera-grey-900: #0d0d12;
+  --color-sfera-grey-800: #16161d;
+  --color-sfera-grey-700: #24242e;
+  --color-sfera-grey-500: #71717a;
+  --color-sfera-grey-300: #d1d5db;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-style: normal !important;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-style: normal !important;
+}
+
+*, *::before, *::after {
+  font-style: normal !important;
+}
+
+.font-lexend {
+  font-family: 'Lexend', sans-serif;
+}
+
+.font-oswald {
+  font-family: 'Oswald', sans-serif;
+}
+
+.font-serif, .font-merriweather {
+  font-family: 'Merriweather', Georgia, serif;
+}
+
+/* National Geographic-inspired signature red frame line */
+.natgeo-red-rule {
+  border-left: 4px solid #A30000;
+}
+
+.natgeo-red-border {
+  border: 1px solid rgba(163, 0, 0, 0.4);
+}
+
+.natgeo-red-border:hover {
+  border-color: #A30000;
+}
+
+
+/* SFERAvis theme system: coordinated light and dark palettes. */
+:root {
+  color-scheme: light;
+  --sfera-page: #f5f6f8;
+  --sfera-surface: #ffffff;
+  --sfera-surface-muted: #eef1f5;
+  --sfera-text: #202633;
+  --sfera-text-muted: #667085;
+  --sfera-border: #dfe4eb;
+  --sfera-shadow: 0 14px 36px -22px rgba(24, 34, 52, 0.24);
+}
+html.dark {
+  color-scheme: dark;
+  --sfera-page: #07090f;
+  --sfera-surface: #10141d;
+  --sfera-surface-muted: #171d29;
+  --sfera-text: #edf1f8;
+  --sfera-text-muted: #a0aabd;
+  --sfera-border: #293243;
+  --sfera-shadow: 0 18px 44px -24px rgba(0, 0, 0, 0.72);
+}
+html, body {
+  background: var(--sfera-page);
+  color: var(--sfera-text);
+  transition: background-color 220ms ease, color 220ms ease;
+}
+/* Keep the pointer familiar and unobtrusive; interactive elements use the native pointer. */
+button:focus-visible, a:focus-visible, [role="button"]:focus-visible {
+  outline: 2px solid #A30000;
+  outline-offset: 4px;
+}
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: var(--sfera-page); }
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--sfera-text-muted) 38%, transparent);
+  border: 2px solid var(--sfera-page);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: #A30000; }
+
+/* The site pages use a shared theme scope; the planetarium modal is excluded. */
+html:not(.dark) .sferavis-site {
+  color: var(--sfera-text);
+}
+html:not(.dark) .sferavis-site [class~="bg-[#050507]"],
+html:not(.dark) .sferavis-site [class~="bg-black"] {
+  background-color: var(--sfera-page) !important;
+}
+html:not(.dark) .sferavis-site [class~="bg-[#08080a]"],
+html:not(.dark) .sferavis-site [class~="bg-zinc-900"] {
+  background-color: var(--sfera-surface-muted) !important;
+}
+html:not(.dark) .sferavis-site [class~="bg-[#0e0e14]"],
+html:not(.dark) .sferavis-site [class~="bg-zinc-800"] {
+  background-color: var(--sfera-surface) !important;
+}
+html:not(.dark) .sferavis-site [class~="text-white"]:not([class~="bg-[#A30000]"]),
+html:not(.dark) .sferavis-site [class~="text-zinc-100"],
+html:not(.dark) .sferavis-site [class~="text-zinc-200"],
+html:not(.dark) .sferavis-site [class~="text-zinc-300"] {
+  color: var(--sfera-text) !important;
+}
+html:not(.dark) .sferavis-site [class~="text-zinc-400"],
+html:not(.dark) .sferavis-site [class~="text-zinc-500"],
+html:not(.dark) .sferavis-site [class~="text-zinc-600"] {
+  color: var(--sfera-text-muted) !important;
+}
+html:not(.dark) .sferavis-site [class~="border-zinc-800"],
+html:not(.dark) .sferavis-site [class~="border-zinc-700"],
+html:not(.dark) .sferavis-site [class~="border-zinc-600"] {
+  border-color: var(--sfera-border) !important;
+}
+html:not(.dark) .sferavis-site [class~="shadow-2xl"],
+html:not(.dark) .sferavis-site [class~="shadow-xl"] {
+  box-shadow: var(--sfera-shadow) !important;
+}
+html:not(.dark) .sferavis-site [class~="bg-[#A30000]"] {
+  color: #ffffff !important;
+}
+html:not(.dark) .sferavis-site [class~="bg-zinc-100"] {
+  background-color: #e8ebf0 !important;
+}
+html:not(.dark) .sferavis-site [class~="hover:bg-zinc-800"]:hover,
+html:not(.dark) .sferavis-site [class~="hover:bg-zinc-900"]:hover {
+  background-color: #e5e9ef !important;
+}
+
+/* The cosmic backdrop remains understated in light mode and richer in dark mode. */
+.sferavis-cosmic-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: var(--sfera-page);
+  background-image:
+    radial-gradient(ellipse at 13% 18%, rgba(163, 0, 0, 0.055) 0, transparent 34%),
+    radial-gradient(ellipse at 84% 26%, rgba(93, 120, 180, 0.075) 0, transparent 38%),
+    radial-gradient(ellipse at 58% 88%, rgba(139, 92, 190, 0.045) 0, transparent 34%),
+    radial-gradient(circle, rgba(65, 78, 112, 0.22) 0.65px, transparent 0.9px);
+  background-size: auto, auto, auto, 38px 38px;
+  background-position: center, center, center, 7px 11px;
+}
+.sferavis-cosmic-backdrop::before,
+.sferavis-cosmic-backdrop::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(110, 125, 160, 0.10);
+  border-radius: 50%;
+  transform: rotate(-24deg);
+}
+.sferavis-cosmic-backdrop::before {
+  width: min(78vw, 980px);
+  height: min(30vw, 380px);
+  min-height: 220px;
+  top: 12%;
+  right: -18%;
+}
+.sferavis-cosmic-backdrop::after {
+  width: min(66vw, 820px);
+  height: min(26vw, 320px);
+  min-height: 190px;
+  bottom: 7%;
+  left: -22%;
+  transform: rotate(31deg);
+  border-color: rgba(163, 0, 0, 0.075);
+}
+.dark .sferavis-cosmic-backdrop {
+  background-color: #07090f;
+  background-image:
+    radial-gradient(ellipse at 13% 18%, rgba(163, 0, 0, 0.18) 0, transparent 36%),
+    radial-gradient(ellipse at 84% 26%, rgba(70, 105, 190, 0.17) 0, transparent 40%),
+    radial-gradient(ellipse at 58% 88%, rgba(139, 92, 190, 0.12) 0, transparent 36%),
+    radial-gradient(circle, rgba(210, 220, 245, 0.4) 0.7px, transparent 1px);
+}
+.dark .sferavis-cosmic-backdrop::before,
+.dark .sferavis-cosmic-backdrop::after {
+  border-color: rgba(190, 200, 225, 0.12);
+}
+@media (prefers-reduced-motion: reduce) {
+  .sferavis-cosmic-backdrop,
+  .sferavis-cosmic-backdrop::before,
+  .sferavis-cosmic-backdrop::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* Planetarium: separate the instrument view from its control console. */
+.planetarium-controls {
+  background: linear-gradient(160deg, #1b2940 0%, #141f32 100%);
+  color: #e6edf8;
+}
+.planetarium-controls > div > section {
+  padding: 0.85rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 0.65rem;
+  background: rgba(30, 43, 64, 0.72);
+}
+.planetarium-controls > div > section + section {
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+}
+.planetarium-controls .bg-black {
+  background-color: #101a2b;
+}
+.planetarium-controls .bg-black\/50 {
+  background-color: rgba(10, 18, 32, 0.72);
+}
+.planetarium-controls input:not([type="range"]) {
+  background-color: #0d1728;
+  border-color: #40516b;
+}
+.planetarium-controls button:not([class*="bg-[#A30000]"]) {
+  border-radius: 0.4rem;
+}
+.planetarium-controls button:hover {
+  border-color: rgba(210, 90, 100, 0.75);
+}
+.planetarium-controls h3 {
+  color: #e7edf7;
+}
+.planetarium-controls p {
+  text-wrap: pretty;
+}
+
+
+/* Homepage spectral explorer: clearly separated control and visualization surfaces. */
+.sferavis-spectral-console {
+  border-radius: 1rem;
+}
+.sferavis-spectral-controls {
+  border-radius: 0.8rem;
+  padding: 1.15rem;
+  background: rgba(255, 255, 255, 0.018);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+}
+.sferavis-visualizer-stage {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0.85rem;
+  background: linear-gradient(145deg, rgba(20, 30, 47, 0.78), rgba(12, 18, 30, 0.88));
+}
+.sferavis-diagnostic-panel,
+.sferavis-sed-panel {
+  border-radius: 0.65rem;
+  background: #101827;
+}
+.sferavis-sed-plot {
+  border-radius: 0.45rem;
+}
+.sferavis-sed-gradient stop:last-child {
+  stop-color: #101827;
+}
+
+/* Light mode: the lower visualization deck is a distinct pale surface, not a black block. */
+html:not(.dark) .sferavis-site .sferavis-spectral-console {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 20px 48px -30px rgba(31, 41, 55, 0.34) !important;
+}
+html:not(.dark) .sferavis-site .sferavis-spectral-controls {
+  background: #ffffff;
+  border-color: #d7dee8;
+  box-shadow: 0 4px 14px rgba(31, 41, 55, 0.045);
+}
+html:not(.dark) .sferavis-site .sferavis-visualizer-stage {
+  background: linear-gradient(145deg, #e9eef5 0%, #f1f4f8 100%);
+  border-color: #cbd5e1;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+html:not(.dark) .sferavis-site .sferavis-diagnostic-panel,
+html:not(.dark) .sferavis-site .sferavis-sed-panel {
+  background: #ffffff !important;
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 22px -16px rgba(31, 41, 55, 0.3);
+}
+html:not(.dark) .sferavis-site .sferavis-sed-plot {
+  background: #f8fafc !important;
+  border-color: #cbd5e1;
+}
+html:not(.dark) .sferavis-site .sferavis-sed-gradient stop:last-child {
+  stop-color: #f8fafc;
+}
+html:not(.dark) .sferavis-site .sferavis-sed-plot [class~="text-red-300"] {
+  color: #8b0000 !important;
+}
+
+/* A minimal crimson instrument-reticle cursor; only enabled on precise pointers. */
+@media (hover: hover) and (pointer: fine) {
+  .sferavis-site,
+  .sferavis-site *,
+  .sferavis-cursor-area,
+  .sferavis-cursor-area * {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Ccircle cx='14' cy='14' r='4' fill='%23A30000'/%3E%3Ccircle cx='14' cy='14' r='9' fill='none' stroke='%23A30000' stroke-width='1.35'/%3E%3Cpath d='M14 1.5v5M14 21.5v5M1.5 14h5M21.5 14h5' stroke='%23A30000' stroke-width='1.25' stroke-linecap='round'/%3E%3C/svg%3E") 14 14, auto;
+  }
+  .sferavis-site a,
+  .sferavis-site button,
+  .sferavis-site [role="button"],
+  .sferavis-site input[type="range"],
+  .sferavis-site label,
+  .sferavis-cursor-area a,
+  .sferavis-cursor-area button,
+  .sferavis-cursor-area [role="button"],
+  .sferavis-cursor-area label {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Ccircle cx='14' cy='14' r='3' fill='%23A30000'/%3E%3Ccircle cx='14' cy='14' r='9' fill='none' stroke='%23A30000' stroke-width='1.6'/%3E%3C/svg%3E") 14 14, pointer;
+  }
+}
+
+
+/* Explicit white-mode override for every layer of the lower spectral panel. */
+html:not(.dark) body .sferavis-site .sferavis-visualizer-stage,
+html:not(.dark) body .sferavis-site .sferavis-visualizer-stage .sferavis-diagnostic-panel,
+html:not(.dark) body .sferavis-site .sferavis-visualizer-stage .sferavis-sed-panel,
+html:not(.dark) body .sferavis-site .sferavis-visualizer-stage .sferavis-sed-plot {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+html:not(.dark) body .sferavis-site .sferavis-visualizer-stage {
+  border-color: #cbd5e1 !important;
+  box-shadow: inset 0 1px 0 #ffffff, 0 8px 26px -20px rgba(15, 23, 42, 0.28) !important;
+}
+html:not(.dark) body .sferavis-site .sferavis-visualizer-stage .sferavis-diagnostic-panel,
+html:not(.dark) body .sferavis-site .sferavis-visualizer-stage .sferavis-sed-panel,
+html:not(.dark) body .sferavis-site .sferavis-visualizer-stage .sferavis-sed-plot {
+  border-color: #d5dce5 !important;
+}
+
+/* Explicit white-mode override for the lower-most CTA panel and footer */
+html:not(.dark) body .sferavis-site .sferavis-cta-panel,
+html:not(.dark) body .sferavis-cta-panel,
+html:not(.dark) body .sferavis-footer,
+html:not(.dark) body footer {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+html:not(.dark) body .sferavis-site .sferavis-cta-panel h2 {
+  color: #09090b !important;
+}
+
+html:not(.dark) body .sferavis-site .sferavis-cta-panel p {
+  color: #52525b !important;
+}
+
+html:not(.dark) body .sferavis-footer h4 {
+  color: #09090b !important;
+}
+
+html:not(.dark) body .sferavis-footer p {
+  color: #52525b !important;
+}
+
+html:not(.dark) body .sferavis-footer button,
+html:not(.dark) body .sferavis-footer a {
+  color: #52525b !important;
+}
+
+html:not(.dark) body .sferavis-footer button:hover,
+html:not(.dark) body .sferavis-footer a:hover {
+  color: #09090b !important;
+}
+
+/* Ensure Logo text in lower-most panel and footer is crisp black + deep red in light mode, and crisp white + deep red in dark mode */
+html:not(.dark) body .sferavis-cta-panel .font-oswald span:first-child,
+html:not(.dark) body .sferavis-footer .font-oswald span:first-child,
+html:not(.dark) body footer .font-oswald span:first-child {
+  color: #000000 !important;
+}
+
+html.dark body .sferavis-cta-panel .font-oswald span:first-child,
+html.dark body .sferavis-footer .font-oswald span:first-child,
+html.dark body footer .font-oswald span:first-child {
+  color: #ffffff !important;
+}
+
+body .sferavis-cta-panel .font-oswald span:last-child,
+body .sferavis-footer .font-oswald span:last-child,
+body footer .font-oswald span:last-child {
+  color: #A30000 !important;
+}
+
+
+/* Accessibility preferences and shared keyboard-navigation affordances. */
+.sferavis-skip-link {
+  position: fixed; top: .75rem; left: .75rem; z-index: 1000;
+  transform: translateY(-180%); border-radius: .65rem;
+  background: #8B0000; color: #fff; padding: .75rem 1rem;
+  font-weight: 700; box-shadow: 0 8px 24px rgba(0,0,0,.22);
+}
+.sferavis-skip-link:focus { transform: translateY(0); }
+:where(button, a, input, textarea, select, [tabindex]):focus-visible {
+  outline: 3px solid #A30000 !important; outline-offset: 3px !important;
+}
+html.a11y-large-text { font-size: 112.5%; }
+html.a11y-high-contrast {
+  --sfera-page: #fff; --sfera-surface: #fff; --sfera-surface-muted: #f0f0f0;
+  --sfera-text: #101010; --sfera-text-muted: #303030; --sfera-border: #555;
+}
+html.dark.a11y-high-contrast {
+  --sfera-page: #000; --sfera-surface: #050505; --sfera-surface-muted: #111;
+  --sfera-text: #fff; --sfera-text-muted: #eee; --sfera-border: #bdbdbd;
+}
+html.a11y-underlined-links .sferavis-site a,
+html.a11y-underlined-links .sferavis-site [role="link"] {
+  text-decoration: underline !important; text-underline-offset: .18em;
+}
+html.a11y-reduced-motion *,
+html.a11y-reduced-motion *::before,
+html.a11y-reduced-motion *::after {
+  scroll-behavior: auto !important; animation-duration: .01ms !important;
+  animation-iteration-count: 1 !important; transition-duration: .01ms !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+
+/* Expanded accessibility controls: adjustable text, spacing and focus settings. */
+html { font-size: calc(16px * var(--a11y-font-scale, 1)); }
+body, .sferavis-site { line-height: var(--a11y-line-height, 1.5); }
+:where(button, a, input, textarea, select, [tabindex]):focus-visible {
+  outline-width: var(--a11y-focus-width, 3px) !important;
+}
+html.a11y-contrast-1 {
+  --sfera-text: #111827; --sfera-text-muted: #374151; --sfera-border: #64748b;
+}
+html.dark.a11y-contrast-1 {
+  --sfera-text: #ffffff; --sfera-text-muted: #e2e8f0; --sfera-border: #94a3b8;
+}
+html.a11y-contrast-2 {
+  --sfera-page: #ffffff; --sfera-surface: #ffffff; --sfera-surface-muted: #f1f1f1;
+  --sfera-text: #000000; --sfera-text-muted: #111111; --sfera-border: #222222;
+}
+html.dark.a11y-contrast-2 {
+  --sfera-page: #000000; --sfera-surface: #050505; --sfera-surface-muted: #101010;
+  --sfera-text: #ffffff; --sfera-text-muted: #ffffff; --sfera-border: #ffffff;
+}
+html.a11y-link-style-1 .sferavis-site a,
+html.a11y-link-style-2 .sferavis-site a,
+html.a11y-link-style-1 .sferavis-site [role="link"],
+html.a11y-link-style-2 .sferavis-site [role="link"] {
+  text-decoration: underline !important; text-underline-offset: .2em;
+}
+html.a11y-link-style-2 .sferavis-site a,
+html.a11y-link-style-2 .sferavis-site [role="link"] {
+  text-decoration-thickness: 2px !important; font-weight: 700 !important;
+}
+html.a11y-motion-1 *, html.a11y-motion-1 *::before, html.a11y-motion-1 *::after {
+  scroll-behavior: auto !important; animation-duration: .15ms !important;
+  animation-iteration-count: 1 !important; transition-duration: .15ms !important;
+}
+html.a11y-motion-2 *, html.a11y-motion-2 *::before, html.a11y-motion-2 *::after {
+  scroll-behavior: auto !important; animation: none !important; transition: none !important;
+}
+.sferavis-a11y-range { height: 1.25rem; accent-color: #8B0000; cursor: pointer; }
+.sferavis-a11y-range:focus-visible { outline: 2px solid #A30000; outline-offset: 4px; }
+
+
+/* Cursor size is controlled by the Accessibility panel. */
+@media (hover: hover) and (pointer: fine) {
+  .sferavis-site,
+  .sferavis-site *,
+  .sferavis-cursor-area,
+  .sferavis-cursor-area * {
+    cursor: var(--a11y-cursor-default, auto) !important;
+  }
+  .sferavis-site a,
+  .sferavis-site button,
+  .sferavis-site [role="button"],
+  .sferavis-site input[type="range"],
+  .sferavis-site label,
+  .sferavis-cursor-area a,
+  .sferavis-cursor-area button,
+  .sferavis-cursor-area [role="button"],
+  .sferavis-cursor-area label {
+    cursor: var(--a11y-cursor-pointer, pointer) !important;
+  }
+}
