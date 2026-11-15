@@ -12,12 +12,7 @@ import {
   Terminal,
   Database,
   Layers,
-  FileText,
-  Download,
 } from 'lucide-react';
-
-const scientificReferenceUrl = new URL('../../scidocs.pdf', import.meta.url).href;
-const mlPipelineUrl = new URL('../../mlpipeline.pdf', import.meta.url).href;
 
 interface DocsPageProps {
   onNavigate: (page: PageId) => void;
@@ -140,6 +135,25 @@ export const DocsPage: React.FC<DocsPageProps> = ({ onNavigate }) => {
 
               <div className="mt-6 text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-merriweather leading-relaxed space-y-4">
                 <p>{activeDoc.content}</p>
+                {(activeDoc.id === 'scientific-reference' || activeDoc.id === 'ml-pipeline') && (
+                  <div className="flex flex-wrap items-center gap-4 pt-5">
+                    <a
+                      href={activeDoc.id === 'scientific-reference' ? new URL('../../scidocs.pdf', import.meta.url).href : new URL('../../mlpipeline.pdf', import.meta.url).href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-lexend font-bold uppercase tracking-wider text-[#A30000] hover:underline"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" /> Read document
+                    </a>
+                    <a
+                      href={activeDoc.id === 'scientific-reference' ? new URL('../../scidocs.pdf', import.meta.url).href : new URL('../../mlpipeline.pdf', import.meta.url).href}
+                      download={activeDoc.id === 'scientific-reference' ? 'scidocs.pdf' : 'mlpipeline.pdf'}
+                      className="inline-flex items-center gap-2 text-xs font-lexend font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 hover:text-[#A30000]"
+                    >
+                      Download PDF
+                    </a>
+                  </div>
+                )}
               </div>
 
               {/* Code Snippet Box */}
@@ -220,82 +234,6 @@ export const DocsPage: React.FC<DocsPageProps> = ({ onNavigate }) => {
 
         </div>
 
-        {/* REFERENCE DOCUMENTS */}
-        <section className="mt-16 border-t border-zinc-200 dark:border-slate-800 pt-12">
-          <div className="max-w-3xl mb-8">
-            <p className="text-[11px] font-lexend font-bold uppercase tracking-[0.2em] text-[#A30000] mb-3">
-              Research &amp; Technical Resources
-            </p>
-            <h2 className="text-2xl sm:text-3xl font-oswald font-black uppercase tracking-tight text-slate-950 dark:text-white">
-              Reference Documents<span className="text-[#A30000]">.</span>
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-zinc-400">
-              Scientific foundations and technical methodology behind the Sferavis analysis workflow.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <article className="group flex flex-col justify-between border border-zinc-200 dark:border-slate-800 bg-white dark:bg-[#0e1628] p-6 sm:p-7 shadow-sm hover:border-[#A30000]/60 transition-colors">
-              <div>
-                <div className="flex items-start justify-between gap-4 mb-6">
-                  <div className="flex items-center justify-center w-11 h-11 border border-[#A30000]/20 bg-[#A30000]/5 text-[#A30000]">
-                    <FileText className="w-5 h-5" />
-                  </div>
-                  <span className="text-[10px] font-lexend font-bold uppercase tracking-widest text-slate-400 dark:text-zinc-500 border border-zinc-200 dark:border-slate-700 px-2 py-1">
-                    PDF · Scientific Reference
-                  </span>
-                </div>
-                <h3 className="text-xl font-oswald font-bold uppercase tracking-tight text-slate-950 dark:text-white">
-                  Scientific Reference
-                </h3>
-                <p className="mt-1 text-xs font-lexend font-semibold text-[#A30000]">
-                  Infrared Spectral and Photometric Signatures
-                </p>
-                <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-zinc-400">
-                  A scientific reference for interpreting infrared spectral and photometric characteristics relevant to SPHEREx observations and object analysis.
-                </p>
-              </div>
-              <div className="flex flex-wrap items-center gap-4 mt-8 pt-5 border-t border-zinc-100 dark:border-slate-800">
-                <a href={scientificReferenceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-lexend font-bold uppercase tracking-wider text-slate-900 dark:text-white hover:text-[#A30000] transition-colors">
-                  <ExternalLink className="w-3.5 h-3.5" /> Read document
-                </a>
-                <a href={scientificReferenceUrl} download="scidocs.pdf" className="inline-flex items-center gap-2 text-xs font-lexend font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 hover:text-[#A30000] transition-colors">
-                  <Download className="w-3.5 h-3.5" /> Download
-                </a>
-              </div>
-            </article>
-
-            <article className="group flex flex-col justify-between border border-zinc-200 dark:border-slate-800 bg-white dark:bg-[#0e1628] p-6 sm:p-7 shadow-sm hover:border-[#A30000]/60 transition-colors">
-              <div>
-                <div className="flex items-start justify-between gap-4 mb-6">
-                  <div className="flex items-center justify-center w-11 h-11 border border-[#A30000]/20 bg-[#A30000]/5 text-[#A30000]">
-                    <FileText className="w-5 h-5" />
-                  </div>
-                  <span className="text-[10px] font-lexend font-bold uppercase tracking-widest text-slate-400 dark:text-zinc-500 border border-zinc-200 dark:border-slate-700 px-2 py-1">
-                    PDF · Technical Guide
-                  </span>
-                </div>
-                <h3 className="text-xl font-oswald font-bold uppercase tracking-tight text-slate-950 dark:text-white">
-                  ML Pipeline
-                </h3>
-                <p className="mt-1 text-xs font-lexend font-semibold text-[#A30000]">
-                  Technical Guide for Data Analysis
-                </p>
-                <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-zinc-400">
-                  A technical guide outlining the machine-learning pipeline and analytical workflow used to process and investigate SPHEREx data.
-                </p>
-              </div>
-              <div className="flex flex-wrap items-center gap-4 mt-8 pt-5 border-t border-zinc-100 dark:border-slate-800">
-                <a href={mlPipelineUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-lexend font-bold uppercase tracking-wider text-slate-900 dark:text-white hover:text-[#A30000] transition-colors">
-                  <ExternalLink className="w-3.5 h-3.5" /> Read document
-                </a>
-                <a href={mlPipelineUrl} download="mlpipeline.pdf" className="inline-flex items-center gap-2 text-xs font-lexend font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 hover:text-[#A30000] transition-colors">
-                  <Download className="w-3.5 h-3.5" /> Download
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
       </div>
 
     </div>
