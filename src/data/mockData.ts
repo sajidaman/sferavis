@@ -378,12 +378,12 @@ print(f"Stellar Mass log(M*/M_sun): {z_fit.log_mass:.2f}")
 
 export const DOC_SECTIONS: DocSection[] = [
   {
-    id: 'overview',
-    title: 'Overview',
+    id: 'scientific-reference',
+    title: 'Scientific Reference',
     category: 'Overview',
-    content: `SFERAvis is a platform for exploring and analysing near-infrared sky-survey data from NASA's SPHEREx mission. It brings astronomical data, visual exploration, and object-candidate investigation together in one public-facing environment.
+    content: `Infrared Spectral and Photometric Signatures
 
-This documentation introduces the platform's purpose, the role of SPHEREx data, and the main stages through which observations become information that can be explored by researchers and the public.`
+This scientific reference describes the infrared spectral and photometric signatures used to interpret SPHEREx observations and assess the physical characteristics of astronomical sources. Open the full reference PDF to consult the detailed scientific material.`
   },
   {
     id: 'public-detection',
@@ -394,12 +394,12 @@ This documentation introduces the platform's purpose, the role of SPHEREx data, 
 Public access to detection information does not require an account. An account is required when submitting a comment or written contribution. Submissions are associated with the relevant candidate so that community feedback can be reviewed alongside the detection record.`
   },
   {
-    id: 'ai-ml-pipeline',
-    title: 'AI-ML Pipeline',
+    id: 'ml-pipeline',
+    title: 'ML Pipeline',
     category: 'AI-ML Pipeline',
-    content: `The AI-ML pipeline describes how SPHEREx observations can be transformed into candidate object detections. The workflow is organised into data preparation, feature extraction, model inference, candidate assessment, and presentation of results.
+    content: `Technical Guide for Data Analysis
 
-Input data are prepared with their relevant observational metadata and quality information. Spatial, temporal, and spectral features can then be evaluated by detection and classification methods. Model outputs are treated as candidate results rather than confirmed discoveries; they should be checked against the available evidence and may be refined through subsequent analysis and community review.`
+This technical guide documents the machine-learning pipeline and data-analysis workflow for Sferavis, including the processing and analysis stages used to investigate SPHEREx observations. Open the full guide PDF for the detailed methodology.`
   }
 ];
 
