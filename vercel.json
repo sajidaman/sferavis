@@ -1,0 +1,25 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "installCommand": "bun install --frozen-lockfile",
+  "buildCommand": "bun run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/proxy/irsa/:path*",
+      "destination": "https://irsa.ipac.caltech.edu/:path*"
+    },
+    {
+      "source": "/proxy/jpl/:path*",
+      "destination": "https://ssd-api.jpl.nasa.gov/:path*"
+    },
+    {
+      "source": "/proxy/simbad/:path*",
+      "destination": "https://simbad.cds.unistra.fr/:path*"
+    },
+    {
+      "source": "/proxy/vizier/:path*",
+      "destination": "https://tapvizier.cds.unistra.fr/:path*"
+    }
+  ]
+}
