@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, FolderOpen } from 'lucide-react';
+import { Download, FileText, FolderOpen } from 'lucide-react';
 import { PageId } from '../types';
 
 interface ArchivePageProps {
@@ -109,7 +109,7 @@ export const ArchivePage: React.FC<ArchivePageProps> = ({ onNavigate }) => (
           {[
             ['Field centre', 'RA 180.0000° / Dec +0.0000°'],
             ['Collections', '6 categories'],
-            ['File access', 'Catalogue listing'],
+            ['File access', 'Direct downloads'],
           ].map(([label, value]) => (
             <div key={label} className="border-b border-zinc-200 px-6 py-5 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 dark:border-slate-800">
               <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-zinc-500">{label}</p>
@@ -124,7 +124,7 @@ export const ArchivePage: React.FC<ArchivePageProps> = ({ onNavigate }) => (
           <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#a30000]">Release contents</p>
           <h2 id="release-files-heading" className="mt-2 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl dark:text-white">Browse all files</h2>
           <p className="mt-3 max-w-2xl text-sm leading-7 text-zinc-600 dark:text-zinc-400">
-            The files in this release are listed by collection. Repository links are currently unavailable.
+            Browse the release by collection and download any catalogue, diagnostic plot, spectrum, or processing record directly from the Sferavis repository.
           </p>
         </div>
         <div className="space-y-5">
@@ -145,9 +145,20 @@ export const ArchivePage: React.FC<ArchivePageProps> = ({ onNavigate }) => (
               <ul className="grid grid-cols-1 divide-y divide-zinc-100 sm:grid-cols-2 sm:divide-y-0 dark:divide-slate-800">
                 {group.files.map((filename) => (
                   <li key={filename} className="min-w-0 border-zinc-100 px-5 py-3.5 sm:border-b dark:border-slate-800">
-                    <div className="flex min-w-0 items-center gap-2 text-sm text-slate-700 dark:text-zinc-300">
-                      <FileText size={15} className="shrink-0 text-zinc-400" />
-                      <span className="truncate">{filename}</span>
+                    <div className="flex min-w-0 items-center justify-between gap-3">
+                      <div className="flex min-w-0 items-center gap-2 text-sm text-slate-700 dark:text-zinc-300">
+                        <FileText size={15} className="shrink-0 text-zinc-400" />
+                        <span className="truncate">{filename}</span>
+                      </div>
+                      <a
+                        href={`https://github.com/sajidaman/sferavis/raw/refs/heads/main/${encodeURIComponent(filename)}?download=1`}
+                        download={filename}
+                        className="inline-flex shrink-0 items-center gap-1.5 border border-zinc-200 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-600 transition-colors hover:border-[#a30000]/40 hover:bg-[#a30000]/[0.05] hover:text-[#a30000] dark:border-slate-700 dark:text-zinc-300 dark:hover:text-white"
+                        aria-label={`Download ${filename}`}
+                      >
+                        <Download size={13} />
+                        <span>Download</span>
+                      </a>
                     </div>
                   </li>
                 ))}
