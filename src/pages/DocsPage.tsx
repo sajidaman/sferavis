@@ -39,8 +39,6 @@ export const DocsPage: React.FC<DocsPageProps> = ({ onNavigate }) => {
     return DOC_SECTIONS.find((d) => d.id === selectedDocId) || DOC_SECTIONS[0];
   }, [selectedDocId]);
 
-  const categories = ['Overview', 'AI-ML Pipeline'];
-
   const handleCopyCode = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
     setCopiedCodeId(id);
@@ -85,35 +83,27 @@ export const DocsPage: React.FC<DocsPageProps> = ({ onNavigate }) => {
           {/* SIDEBAR NAVIGATION (3.5 COLS) */}
           <div className="lg:col-span-4 space-y-6">
             
-            {categories.map((cat) => {
-              const catDocs = filteredDocs.filter((d) => d.category === cat);
-              if (catDocs.length === 0) return null;
-
-              return (
-                <div key={cat} className="space-y-1">
-                  <h3 className="text-xs font-lexend font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-widest px-3 mb-2">
-                    {cat}
-                  </h3>
-
-                  {catDocs.map((doc) => {
-                    const isSelected = doc.id === activeDoc.id;
-                    return (
-                      <button
-                        key={doc.id}
-                        onClick={() => setSelectedDocId(doc.id)}
-                        className={`w-full text-left px-3.5 py-2.5 text-xs font-lexend transition-all cursor-pointer border-l-2 ${
-                          isSelected
-                            ? 'border-[#A30000] bg-white dark:bg-[#152038] text-slate-950 dark:text-white font-bold shadow-sm'
-                            : 'border-transparent text-slate-600 dark:text-zinc-400 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900'
-                        }`}
-                      >
-                        {doc.title}
-                      </button>
-                    );
-                  })}
-                </div>
-              );
-            })}
+            <div className="space-y-1">
+              {filteredDocs.map((doc) => {
+                const isSelected = doc.id === activeDoc.id;
+                return (
+                  <button
+                    key={doc.id}
+                    onClick={() => setSelectedDocId(doc.id)}
+                    className={`w-full text-left px-3.5 py-3 text-xs font-lexend transition-all cursor-pointer border-l-2 ${
+                      isSelected
+                        ? 'border-[#A30000] bg-white dark:bg-[#152038] text-slate-950 dark:text-white font-bold shadow-sm'
+                        : 'border-transparent text-slate-600 dark:text-zinc-400 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900'
+                    }`}
+                  >
+                    {doc.title}
+                  </button>
+                );
+              })}
+              {filteredDocs.length === 0 && (
+                <p className="px-3 py-3 text-xs text-slate-500 dark:text-zinc-400">No documentation matches your search.</p>
+              )}
+            </div>
 
           </div>
 
@@ -124,7 +114,7 @@ export const DocsPage: React.FC<DocsPageProps> = ({ onNavigate }) => {
             <div className="bg-white dark:bg-[#0e1628] border border-zinc-200 dark:border-slate-800 border-l-4 border-l-[#A30000] p-6 sm:p-10 shadow-sm">
               
               <div className="flex items-center gap-2 text-xs font-lexend uppercase tracking-wider text-[#A30000] font-bold mb-2">
-                <span>{activeDoc.category}</span>
+                <span>DOCUMENTATION</span>
                 <span>/</span>
                 <span>v2.4 Specification</span>
               </div>
