@@ -144,11 +144,6 @@ export const TutorialsPage: React.FC<TutorialsPageProps> = ({ onNavigate }) => {
               </div>
             </section>
 
-            <div className={`${card} border-l-4 border-l-[#A30000] p-5`}>
-              <div className="flex items-center gap-2 font-lexend text-xs font-bold uppercase tracking-wider text-slate-950 dark:text-white"><BookOpen className="h-4 w-4 text-[#A30000]" aria-hidden="true" /> Need the technical reference?</div>
-              <p className="mt-2 text-xs leading-relaxed text-slate-600 dark:text-zinc-400">Explore function signatures, REST parameters, and FITS cube references in the documentation.</p>
-              <button type="button" onClick={() => onNavigate('documentations')} className="mt-4 inline-flex items-center gap-1 font-lexend text-xs font-bold uppercase tracking-wider text-[#A30000] transition-colors hover:text-[#8B0000]">Browse documentation <ChevronRight className="h-3.5 w-3.5" /></button>
-            </div>
           </aside>
 
           <section className="min-w-0 space-y-5 lg:col-span-8" aria-live="polite">
