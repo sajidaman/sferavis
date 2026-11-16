@@ -1,0 +1,11 @@
+step,seconds
+step1_config,5.491912603378296
+step2_download_obs,3.586270332336426
+step3_detect_sources,9.17734670639038
+step4_survey_match,7.137803077697754
+step5_list_unlabeled_obj,1.267378807067871
+step6_link_tracklets,0.26102757453918457
+step7_check_results,2.995450019836426
+step8_extract_spectra,15.179797410964966
+step9_classify,0.03379106521606445
+TOTAL,45.1309928894043

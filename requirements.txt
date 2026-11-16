@@ -1,0 +1,17 @@
+# SPHEREx moving-object pipeline - Python 3.10 or newer
+# Install:  python -m pip install -r requirements.txt
+# (exact versions this was tested with are listed in requirements-tested.txt)
+
+# --- core numerics / data ---
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+
+# --- astronomy ---
+astropy>=6.0
+photutils>=1.13      # source detection (step 3)
+astroquery>=0.4.7    # IRSA / Gaia / VizieR / SIMBAD / SkyBoT queries (steps 2, 4, 5, 7)
+pyvo>=1.5            # TAP client used by astroquery (IRSA, Gaia, SIMBAD) - listed explicitly
+
+# --- plotting (step 7 candidate plots) ---
+matplotlib>=3.7
