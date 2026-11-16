@@ -39,7 +39,7 @@ export const DocsPage: React.FC<DocsPageProps> = ({ onNavigate }) => {
     return DOC_SECTIONS.find((d) => d.id === selectedDocId) || DOC_SECTIONS[0];
   }, [selectedDocId]);
 
-  const categories = ['Overview', 'AI-ML Pipeline', 'Public Detection'];
+  const categories = ['Overview', 'AI-ML Pipeline'];
 
   const handleCopyCode = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
