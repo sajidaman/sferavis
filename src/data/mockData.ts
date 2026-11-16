@@ -380,7 +380,7 @@ export const DOC_SECTIONS: DocSection[] = [
   {
     id: 'scientific-reference',
     title: 'Scientific Reference',
-    category: 'Overview',
+    category: 'Documentation',
     content: `Infrared Spectral and Photometric Signatures
 
 This scientific reference describes the infrared spectral and photometric signatures used to interpret SPHEREx observations and assess the physical characteristics of astronomical sources. Open the full reference PDF to consult the detailed scientific material.`
@@ -388,7 +388,7 @@ This scientific reference describes the infrared spectral and photometric signat
   {
     id: 'sky-atlas',
     title: 'Sky Atlas',
-    category: 'Overview',
+    category: 'Documentation',
     content: `A Stellarium-style planetarium for the infrared sky
 
 Explore the infrared sky through the Sferavis planetarium interface. Open the guide PDF for an overview of the sky atlas and its features.`
@@ -396,7 +396,7 @@ Explore the infrared sky through the Sferavis planetarium interface. Open the gu
   {
     id: 'ml-pipeline',
     title: 'ML Pipeline',
-    category: 'AI-ML Pipeline',
+    category: 'Documentation',
     content: `Technical Guide for Data Analysis
 
 This technical guide documents the machine-learning pipeline and data-analysis workflow for Sferavis, including the processing and analysis stages used to investigate SPHEREx observations. Open the full guide PDF for the detailed methodology.`
