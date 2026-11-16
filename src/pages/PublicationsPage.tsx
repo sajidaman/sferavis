@@ -21,7 +21,7 @@ export const PublicationsPage: React.FC<PublicationsPageProps> = () => (
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#a30000]/15 bg-[#a30000]/[0.06] text-[#a30000]"><FileText size={22} strokeWidth={1.5} /></div>
             <div className="min-w-0">
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#a30000]">Working paper · Draft</p>
-              <h2 className="mt-2 text-xl font-semibold tracking-tight text-[#171b22] dark:text-white">Sferavis: SPHEREx Moving-Object Detection and Classification</h2>
+              <h2 className="mt-2 text-xl font-semibold tracking-tight text-[#171b22] dark:text-white">R. Raian, S. Aman, I. Tsolaki, S. Tsolaki, E. Tagobert - Machine Learning based Astrometric and Spectral Classification of Newly Discovered Moving Objects in Multi-Epoch SPHEREx Imaging</h2>
               <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-zinc-400">A draft manuscript describing the Sferavis project and its approach to analysing SPHEREx observations. This document is presented as a draft, not as a peer-reviewed publication.</p>
             </div>
           </div>
