@@ -378,14 +378,6 @@ print(f"Stellar Mass log(M*/M_sun): {z_fit.log_mass:.2f}")
 
 export const DOC_SECTIONS: DocSection[] = [
   {
-    id: 'sky-atlas',
-    title: 'Sky Atlas',
-    category: 'Overview',
-    content: `A Stellarium-style planetarium for the infrared sky
-
-Explore the infrared sky through the Sferavis planetarium interface. Open the guide PDF for an overview of the sky atlas and its features.`
-  },
-  {
     id: 'scientific-reference',
     title: 'Scientific Reference',
     category: 'Overview',
@@ -394,12 +386,12 @@ Explore the infrared sky through the Sferavis planetarium interface. Open the gu
 This scientific reference describes the infrared spectral and photometric signatures used to interpret SPHEREx observations and assess the physical characteristics of astronomical sources. Open the full reference PDF to consult the detailed scientific material.`
   },
   {
-    id: 'public-detection',
-    title: 'Public Detection',
-    category: 'Public Detection',
-    content: `The Public Detection area presents object candidates identified for further inspection. Visitors can explore the available candidate information, examine the observational evidence provided by the platform, and contribute a reasoned assessment.
+    id: 'sky-atlas',
+    title: 'Sky Atlas',
+    category: 'Overview',
+    content: `A Stellarium-style planetarium for the infrared sky
 
-Public access to detection information does not require an account. An account is required when submitting a comment or written contribution. Submissions are associated with the relevant candidate so that community feedback can be reviewed alongside the detection record.`
+Explore the infrared sky through the Sferavis planetarium interface. Open the guide PDF for an overview of the sky atlas and its features.`
   },
   {
     id: 'ml-pipeline',
