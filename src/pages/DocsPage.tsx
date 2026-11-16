@@ -146,7 +146,7 @@ export const DocsPage: React.FC<DocsPageProps> = ({ onNavigate }) => {
                       <ExternalLink className="w-3.5 h-3.5" /> Read document
                     </a>
                     <a
-                      href={activeDoc.id === 'scientific-reference' ? new URL('../../scidocs.pdf', import.meta.url).href : new URL('../../mlpipeline.pdf', import.meta.url).href}
+                      href={activeDoc.id === 'scientific-reference' ? new URL('../../scidocs.pdf', import.meta.url).href : activeDoc.id === 'ml-pipeline' ? new URL('../../mlpipeline.pdf', import.meta.url).href : new URL('../../skydocs.pdf', import.meta.url).href}
                       download={activeDoc.id === 'scientific-reference' ? 'scidocs.pdf' : activeDoc.id === 'ml-pipeline' ? 'mlpipeline.pdf' : 'skydocs.pdf'}
                       className="inline-flex items-center gap-2 text-xs font-lexend font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 hover:text-[#A30000]"
                     >
