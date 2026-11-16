@@ -56,7 +56,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li><button onClick={() => onNavigate('contact')} className="hover:text-zinc-950 dark:hover:text-white transition-colors cursor-pointer text-left">Contact Us</button></li>
               <li><button onClick={() => onNavigate('contact')} className="hover:text-zinc-950 dark:hover:text-white transition-colors cursor-pointer text-left">Collaborate With Us</button></li>
               <li><a href="https://www.instagram.com/sferav1s/" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Instagram <ExternalLink className="inline w-3 h-3" /></a></li>
-              <li><a href="https://github.com/sajidaman/sferavis-demo" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-950 dark:hover:text-white transition-colors">GitHub <ExternalLink className="inline w-3 h-3" /></a></li>
+              <li><a href="https://github.com/sajidaman/sferavis" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-950 dark:hover:text-white transition-colors">GitHub <ExternalLink className="inline w-3 h-3" /></a></li>
             </ul>
           </div>
         </div>
@@ -71,7 +71,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span className="text-[10px] font-medium tracking-wide opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">Space Apps Profile</span>
             </a>
             {[
-              { label: 'GitHub', handle: 'sajidaman/sferavis-demo', href: 'https://github.com/sajidaman/sferavis-demo', Icon: Github },
+              { label: 'GitHub', handle: 'sajidaman/sferavis', href: 'https://github.com/sajidaman/sferavis', Icon: Github },
               { label: 'LinkedIn', handle: 'Sferavis', href: 'https://www.linkedin.com/company/sferavis?utm_source=ig&utm_medium=social&utm_content=link_in_bio', Icon: Linkedin },
               { label: 'X', handle: '@sferavis', href: 'https://x.com/sferavis', Icon: null },
               { label: 'Instagram', handle: '@sferav1s', href: 'https://www.instagram.com/sferav1s/', Icon: Instagram },
