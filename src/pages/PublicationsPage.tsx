@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Microscope, FileText, Download } from 'lucide-react';
+import { ArrowUpRight, FileText, Download } from 'lucide-react';
 import { PageId } from '../types';
 
 interface PublicationsPageProps {
