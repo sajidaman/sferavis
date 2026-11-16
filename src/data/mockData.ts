@@ -378,6 +378,14 @@ print(f"Stellar Mass log(M*/M_sun): {z_fit.log_mass:.2f}")
 
 export const DOC_SECTIONS: DocSection[] = [
   {
+    id: 'sky-atlas',
+    title: 'Sky Atlas',
+    category: 'Overview',
+    content: `A Stellarium-style planetarium for the infrared sky
+
+Explore the infrared sky through the Sferavis planetarium interface. Open the guide PDF for an overview of the sky atlas and its features.`
+  },
+  {
     id: 'scientific-reference',
     title: 'Scientific Reference',
     category: 'Overview',
