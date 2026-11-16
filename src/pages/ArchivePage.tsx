@@ -84,7 +84,6 @@ export const ArchivePage: React.FC<ArchivePageProps> = ({ onNavigate }) => (
             Archive<span className="text-[#a30000]">.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-zinc-600 sm:text-base dark:text-zinc-400">
-            Public scientific data releases from Sferavis, including astronomical detections, candidate analysis, spectral measurements, diagnostic plots, and derived data products.
           </p>
         </header>
       </div>
