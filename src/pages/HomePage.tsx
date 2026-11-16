@@ -90,6 +90,25 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onLaunchSferavis
           </div>
         </section>
 
+        <section className="mt-12" aria-labelledby="home-video-heading">
+          <h2
+            id="home-video-heading"
+            className="mb-5 text-center font-oswald text-2xl font-bold uppercase tracking-wide text-slate-900 dark:text-white sm:text-3xl"
+          >
+            Sferavis in Action
+          </h2>
+          <video
+            className="mx-auto block h-auto max-h-[70vh] w-full rounded-xl border border-slate-200 bg-black shadow-sm dark:border-slate-700"
+            controls
+            playsInline
+            preload="metadata"
+            aria-label="Video showcasing Sferavis"
+          >
+            <source src="/videos/sferavis-homepage.mp4" type="video/mp4" />
+            Your browser does not support embedded video.
+          </video>
+        </section>
+
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <button
             type="button"
