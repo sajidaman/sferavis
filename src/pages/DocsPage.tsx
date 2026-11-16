@@ -135,10 +135,10 @@ export const DocsPage: React.FC<DocsPageProps> = ({ onNavigate }) => {
 
               <div className="mt-6 text-sm sm:text-base text-slate-600 dark:text-zinc-300 font-merriweather leading-relaxed space-y-4">
                 <p>{activeDoc.content}</p>
-                {(activeDoc.id === 'scientific-reference' || activeDoc.id === 'ml-pipeline') && (
+                {(['scientific-reference', 'ml-pipeline', 'sky-atlas'].includes(activeDoc.id)) && (
                   <div className="flex flex-wrap items-center gap-4 pt-5">
                     <a
-                      href={activeDoc.id === 'scientific-reference' ? new URL('../../scidocs.pdf', import.meta.url).href : new URL('../../mlpipeline.pdf', import.meta.url).href}
+                      href={activeDoc.id === 'scientific-reference' ? new URL('../../scidocs.pdf', import.meta.url).href : activeDoc.id === 'ml-pipeline' ? new URL('../../mlpipeline.pdf', import.meta.url).href : new URL('../../skydocs.pdf', import.meta.url).href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-xs font-lexend font-bold uppercase tracking-wider text-[#A30000] hover:underline"
@@ -147,7 +147,7 @@ export const DocsPage: React.FC<DocsPageProps> = ({ onNavigate }) => {
                     </a>
                     <a
                       href={activeDoc.id === 'scientific-reference' ? new URL('../../scidocs.pdf', import.meta.url).href : new URL('../../mlpipeline.pdf', import.meta.url).href}
-                      download={activeDoc.id === 'scientific-reference' ? 'scidocs.pdf' : 'mlpipeline.pdf'}
+                      download={activeDoc.id === 'scientific-reference' ? 'scidocs.pdf' : activeDoc.id === 'ml-pipeline' ? 'mlpipeline.pdf' : 'skydocs.pdf'}
                       className="inline-flex items-center gap-2 text-xs font-lexend font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 hover:text-[#A30000]"
                     >
                       Download PDF
